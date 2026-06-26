@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://biknmqqtm2jsu"]
+
+[ext_resource type="Texture2D" uid="uid://c5f2w5fp7pcro" path="res://asset_bundle/AssetBundle/Sprites/ForestBackground.png" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dja2m21hvbobw" path="res://scenes/palyer.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cvb1aps7ge8w2" path="res://scenes/slime.tscn" id="3_lnu2h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ita4j"]
+distance = -48.779716
+
+[node name="Node2D" type="Node2D" unique_id=301994088]
+y_sort_enabled = true
+
+[node name="background" type="Sprite2D" parent="." unique_id=1391140098]
+position = Vector2(-120, 0)
+texture = ExtResource("1_uwrxv")
+metadata/_edit_lock_ = true
+
+[node name="background2" type="Sprite2D" parent="." unique_id=2097139927]
+position = Vector2(120, 0)
+texture = ExtResource("1_uwrxv")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=670957594]
+zoom = Vector2(2.395, 2.395)
+metadata/_edit_lock_ = true
+
+[node name="palyer" parent="." unique_id=1068149058 instance=ExtResource("2_yqjtg")]
+position = Vector2(-205, 56)
+
+[node name="boundary" type="Node2D" parent="." unique_id=284762752]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="boundary" unique_id=282460185]
+position = Vector2(-89, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D" unique_id=1494603278]
+position = Vector2(89, 25)
+shape = SubResource("WorldBoundaryShape2D_ita4j")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="boundary" unique_id=1580443556]
+position = Vector2(-89, 39)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="boundary/StaticBody2D2" unique_id=530178840]
+position = Vector2(89, 25)
+rotation = 3.1415925
+shape = SubResource("WorldBoundaryShape2D_ita4j")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="boundary" unique_id=1910919618]
+position = Vector2(-89, 39)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="boundary/StaticBody2D3" unique_id=1844965243]
+position = Vector2(280, -39)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_ita4j")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="boundary" unique_id=1654084957]
+position = Vector2(-89, 39)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="boundary/StaticBody2D4" unique_id=1256919841]
+position = Vector2(-108, -44)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_ita4j")
+
+[node name="Area2D" parent="." unique_id=1130528112 instance=ExtResource("3_lnu2h")]
+position = Vector2(219, 48)
