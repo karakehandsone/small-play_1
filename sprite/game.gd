@@ -7,6 +7,7 @@ var is_game_over : bool = false
 
 @export var move_speed : float = 50 #速度函数为float并赋值为50  
 @export var animator : AnimatedSprite2D #把一个东西命名并固定在右边菜单上
+@export var bullet_scene : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta: float) -> void:	#这玩意是固定成60fps，好像挺牛逼的
@@ -43,3 +44,15 @@ func game_over():
 	await get_tree().create_timer(3).timeout
 	# 重新加载当前场景（等同于关卡重置）
 	get_tree().reload_current_scene()
+
+
+func _on_fire() -> void:
+	if velocity != Vector2.ZERO or is_game_over: # 如果速度不等于0
+		return #中断代码
+		 
+	#这一行代码：通过加载打包好的场景资源（PackedScene），调用 instantiate() 方法生成该场景的实例。
+	#声明【子弹节点】是调用【子弹场景】
+	var bullet_node = bullet_scene.instantiate()
+	bullet_node.position = position + Vector2(17,7) #position = 位置
+	#第3行是在当前场景生成【子弹节点】
+	get_tree().current_scene.add_child(bullet_node)
