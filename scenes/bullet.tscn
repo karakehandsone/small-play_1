@@ -6,11 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ita4j"]
 size = Vector2(6, 3)
 
-[node name="bullet" type="Area2D" unique_id=1563490904]
+[node name="bullet" type="Area2D" unique_id=1563490904 groups=["bullet"]]
 script = ExtResource("1_y25gk")
 bullet_speed = 300.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=127140112]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=127140112 groups=["bullet"]]
 texture = ExtResource("1_mkf8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=246865344]

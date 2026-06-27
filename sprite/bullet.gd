@@ -8,6 +8,9 @@ func _ready() -> void:
 	queue_free() #摧毁
 #思考 为什么要用get_tree().create_timer(3).timeout，这是什么意思
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _physics_process(delta: float) -> void:
+	# 将子弹按匀速水平移动。
+	# bullet_speed 的单位为像素/秒，正值向右移动，负值向左。
+	# 乘以 delta 使得移动与帧率脱钩，在不同设备上表现一致。
 	position += Vector2(bullet_speed,0) * delta
