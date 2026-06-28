@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dmo03vco8ywm6" path="res://asset_bundle/AssetBundle/Sprites/Slimer.png" id="1_371uh"]
 [ext_resource type="Script" uid="uid://cta4e783i8tbw" path="res://sprite/enemy.gd" id="1_p2gj0"]
 [ext_resource type="Texture2D" uid="uid://rj5k0257l5ih" path="res://asset_bundle/AssetBundle/Sprites/SlimerDeath.png" id="2_n6pvg"]
+[ext_resource type="AudioStream" uid="uid://c8ot0xg7dpp17" path="res://asset_bundle/AssetBundle/Audio/EnemyDeath.mp3" id="4_pjw23"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnioy"]
 atlas = ExtResource("2_n6pvg")
@@ -130,14 +131,19 @@ script = ExtResource("1_p2gj0")
 slime_speed = -50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=30725002]
-position = Vector2(4, 8)
+position = Vector2(5, 10)
+scale = Vector2(1, 1.0172414)
 sprite_frames = SubResource("SpriteFrames_ita4j")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=222638626]
-position = Vector2(1, 8)
+position = Vector2(5, 19)
 shape = SubResource("CircleShape2D_ita4j")
+
+[node name="Death_sound" type="AudioStreamPlayer2D" parent="." unique_id=2003995755]
+position = Vector2(4, 8)
+stream = ExtResource("4_pjw23")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

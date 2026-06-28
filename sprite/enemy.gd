@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	# 检查进入的物体是否为玩家角色（CharacterBody2D）
-	if body is CharacterBody2D:
+	if body is CharacterBody2D and not is_dead:
 		# 调用玩家的 game_over 方法，执行游戏结束流程
 		body.game_over()
 		 
@@ -42,6 +42,8 @@ func _on_area_entered(area: Area2D) -> void:
 		# 销毁子弹区域节点，避免重复命中
 		area.queue_free()
 		get_tree().current_scene.score += 1
+		
+		$Death_sound.play()
 		
 		await  get_tree().create_timer(0.6).timeout
 		queue_free()
