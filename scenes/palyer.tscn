@@ -181,16 +181,12 @@ bullet_scene = ExtResource("2_cnjcc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=182765159]
 sprite_frames = SubResource("SpriteFrames_mwb8w")
-animation = &"roll"
+animation = &"die"
 autoplay = "idle"
-frame_progress = 0.7548615
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=828219622]
 position = Vector2(-1, 4)
 shape = SubResource("CircleShape2D_ita4j")
-
-[node name="Timer" type="Timer" parent="." unique_id=1911742878]
-autostart = true
 
 [node name="resterTimer2" type="Timer" parent="." unique_id=2086080385]
 wait_time = 3.266
@@ -207,5 +203,4 @@ stream = ExtResource("5_5vpto")
 [node name="runningsound" type="AudioStreamPlayer2D" parent="Node2D" unique_id=281442113]
 stream = ExtResource("6_nqdyy")
 
-[connection signal="timeout" from="Timer" to="." method="_on_fire"]
 [connection signal="timeout" from="resterTimer2" to="." method="_reload_scene"]

@@ -25,3 +25,7 @@ func _spawn_slime() -> void:
 func show_game_over():
 	game_over_lable.visible = true 
  
+
+
+
+	
