@@ -47,6 +47,22 @@ region = Rect2(66, 0, 33, 32)
 atlas = ExtResource("1_srq6k")
 region = Rect2(99, 0, 33, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhqji"]
+atlas = ExtResource("1_srq6k")
+region = Rect2(0, 288, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m635r"]
+atlas = ExtResource("1_srq6k")
+region = Rect2(33, 288, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmbh4"]
+atlas = ExtResource("1_srq6k")
+region = Rect2(66, 288, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if0kl"]
+atlas = ExtResource("1_srq6k")
+region = Rect2(99, 288, 33, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vpto"]
 atlas = ExtResource("1_srq6k")
 region = Rect2(0, 32, 33, 32)
@@ -115,6 +131,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jhqji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m635r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmbh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if0kl")
+}],
+"loop": 1,
+"name": &"roll",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5vpto")
 }, {
 "duration": 1.0,
@@ -148,9 +181,9 @@ bullet_scene = ExtResource("2_cnjcc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=182765159]
 sprite_frames = SubResource("SpriteFrames_mwb8w")
-animation = &"die"
+animation = &"roll"
 autoplay = "idle"
-frame_progress = 0.4348526
+frame_progress = 0.7548615
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=828219622]
 position = Vector2(-1, 4)
@@ -159,18 +192,20 @@ shape = SubResource("CircleShape2D_ita4j")
 [node name="Timer" type="Timer" parent="." unique_id=1911742878]
 autostart = true
 
-[node name="firesound" type="AudioStreamPlayer2D" parent="." unique_id=1425896425]
-stream = ExtResource("4_fl2mc")
-
-[node name="gameover_sound" type="AudioStreamPlayer2D" parent="." unique_id=191836585]
-stream = ExtResource("5_5vpto")
-
-[node name="runningsound" type="AudioStreamPlayer2D" parent="." unique_id=281442113]
-stream = ExtResource("6_nqdyy")
-
 [node name="resterTimer2" type="Timer" parent="." unique_id=2086080385]
 wait_time = 3.266
 one_shot = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=288225126]
+
+[node name="firesound" type="AudioStreamPlayer2D" parent="Node2D" unique_id=1425896425]
+stream = ExtResource("4_fl2mc")
+
+[node name="gameover_sound" type="AudioStreamPlayer2D" parent="Node2D" unique_id=191836585]
+stream = ExtResource("5_5vpto")
+
+[node name="runningsound" type="AudioStreamPlayer2D" parent="Node2D" unique_id=281442113]
+stream = ExtResource("6_nqdyy")
 
 [connection signal="timeout" from="Timer" to="." method="_on_fire"]
 [connection signal="timeout" from="resterTimer2" to="." method="_reload_scene"]

@@ -33,6 +33,8 @@ metadata/_edit_lock_ = true
 
 [node name="palyer" parent="." unique_id=1068149058 instance=ExtResource("2_yqjtg")]
 position = Vector2(-188, 81)
+move_speed = 50.0
+roll_speed = 70.0
 
 [node name="boundary" type="Node2D" parent="." unique_id=284762752]
 
@@ -66,10 +68,6 @@ position = Vector2(-89, 39)
 position = Vector2(-108, -44)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_ita4j")
-
-[node name="Timer" type="Timer" parent="." unique_id=16579152]
-wait_time = 3.0
-autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1350716246]
 
@@ -120,5 +118,9 @@ theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("5_iywne")
 theme_override_font_sizes/font_size = 70
 text = "祁孝明远大帅比制作"
+
+[node name="Timer" type="Timer" parent="." unique_id=16579152]
+wait_time = 3.0
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_spawn_slime"]
